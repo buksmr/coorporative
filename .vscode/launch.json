@@ -1,0 +1,18 @@
+{
+      "version": "0.2.0",
+      "configurations": [{
+          "type": "chrome",
+          "request": "launch",
+          "name": "vuejs: chrome",
+          "url": "http://localhost:8000",
+          "breakOnLoad": true,
+          "sourceMaps": true,
+          "webRoot": "${workspaceFolder}/public",
+          "sourceMapPathOverrides": {
+            "webpack:///resources/js/*.vue": "${workspaceFolder}/resources/js/*.vue",
+            "webpack:///./resources/js/*.js": "${workspaceFolder}/resources/js/*.js",
+             "webpack:///./node_modules/*": "${workspaceFolder}/node_modules/*"
+       },
+      }]
+
+      }
