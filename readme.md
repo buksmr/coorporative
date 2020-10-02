@@ -8,10 +8,10 @@ Simplified Cooporative Society application for businesses and companies based on
 <p align="center">
     
 
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/login.png" width=650px>
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/dashboard.PNG" width=650px>
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/members.png" width=650px>
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/loan.PNG" width=650px>
+<img src="https://github.com/buksmr/coorporative/blob/master/finpay/login.png" width=650px>
+<img src="https://github.com/buksmr/coorporative/blob/master/finpay/dashboard.PNG" width=650px>
+<img src="https://github.com/buksmr/coorporative/blob/master/finpay/members.png" width=650px>
+<img src="https://github.com/buksmr/coorporative/blob/master/finpay/Loan.PNG width=650px>
 
 </p>
 ## About Cooporative  Society
