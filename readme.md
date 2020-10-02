@@ -1,10 +1,10 @@
-
-
 # Cooperative Society
 
 Simplified Cooporative Society application for businesses and companies based on laravel - vue.JS 
 
+http://afrimoviereviews.com/bank/
 
+username/password ebuka4u96@gmail.com/123456
 <p align="center">
     
 
