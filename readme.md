@@ -4,18 +4,16 @@ Simplified Cooporative Society application for businesses and companies based on
 
 http://afrimoviereviews.com/bank/
 
-# username/password ebuka4u96@gmail.com/123456
+ username/password ebuka4u96@gmail.com/123456
 <p align="center">
     
 
 <img src="https://github.com/buksmr/coorporative/blob/master/finpay/login.png" width=650px>
 <img src="https://github.com/buksmr/coorporative/blob/master/finpay/dashboard.PNG" width=650px>
 <img src="https://github.com/buksmr/coorporative/blob/master/finpay/members.png" width=650px>
-<img src="https://github.com/buksmr/coorporative/blob/master/finpay/Loan.PNG width=650px>
+<img src="https://github.com/buksmr/coorporative/blob/master/finpay/Loan.PNG" width=650px>
 
 </p>
-
-
 # Below the list  of modules we covered for the basic opensource tool
 
 * Dashboard
