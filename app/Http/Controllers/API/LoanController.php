@@ -204,6 +204,7 @@ $duedate = $due_date->addMonths($value->payment_plan)->toDateString();
             "monthly_payment" => $formData["monthly_payment"],
             "interest_rate" => $formData["interest_rate"],
             "date" => date('Y-m-d'),
+             "month_year" => date('Y-m'),
             
         ]);
      

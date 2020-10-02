@@ -43,7 +43,7 @@ class invoiceController extends Controller {
 			->leftJoin('invoice_item_amounts', 'invoices.invoice_id', '=', 'invoice_item_amounts.invoice_id')
 			->leftjoin('invoice_status_master', 'invoices.invoice_status_id', '=', 'invoice_status_master.invoicestatus_id')
 			->where('invoices.deleted_at', '=', NULL)
-            ->orderBy('invoices.created_at', 'ASC')
+            ->orderBy('invoices.created_at', 'DESC')
             ->get();
 
 		//echo "<pre>";print_r($invoice);exit;

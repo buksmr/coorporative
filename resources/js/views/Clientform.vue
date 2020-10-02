@@ -53,12 +53,12 @@
 
                       <div class="column is-3 is-12-mobile">
             <p class="bd-notification is-info">
-              <label>Last Name
+              <label>Middle Name
               </label>
               <div class="field">
                 <p class="control has-icons-left has-icons-right">
                   <input class="input" type="text" id="client_name" name="client_name" maxlength="25" v-model="user.last_name"
-                    placeholder=" Name">
+                    placeholder=" Middle Name">
                 </p>
            
                

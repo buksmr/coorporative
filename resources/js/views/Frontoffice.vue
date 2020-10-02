@@ -54,7 +54,7 @@
                </span>
             </div>
             <div class="control is-hidden-mobile">
-               <a class="button is-info is-small has-background-grey-darker" @click="filter">Search</a>
+               <a class="button is-info is-small has-background-grey-darker">Search</a>
             </div>
             <a @click="isImageModalActive = true" class="has-background-grey-darker has-text-white is-uppercase is-size-7 addform">Add</a>
          </div>
@@ -114,7 +114,7 @@
               
                <b-table-column field="monthly_payment" class="is-size-7-mobile" label="Monthly AMT" sortable>
 
-    {{props.row.currencies_placement==0 ? props.row.currencies_id : ''}}  {{(props.row.monthly_payment)}}
+    {{props.row.currencies_placement==0 ? props.row.currencies_id : ''}}  {{(props.row.monthly_payment.toLocaleString('en-US', {minimumFractionDigits: 2}))}}
                </b-table-column>
 
                
@@ -314,16 +314,14 @@
 
                   <p class="bd-notification is-info">
                      <label>Company Name</label>
-                     <div class="field has-addons">
-                        <div class="control is-expanded">
-                           <div class="select is-fullwidth">
-                       <select name="company" id="company" v-model="quote.company"  v-validate="'required'" :class="{ 'is-invalid': submitted && errors.has('company') }">
-                                 <option v-for="(companies,index) in companyquote"  v-bind:value="companies.id" :key="index">
-                          {{companies.company_name}}
-                             </option>
-                              </select>
-                           </div>
-                        </div>
+                  
+                                          <div class="field">
+                     <p class="control has-icons-left has-icons-right">
+                        <input id="product_name" class="input" name="product_name" v-model="quote.company" type="text" disabled
+                            >                           
+                     </p>
+
+               
                      </div>
                    </p>
 
@@ -613,7 +611,7 @@
       //   alert(1);
          let url = '/Company';
             axios.get(url).then(response => {
-             this.companyquote = response.data.CompanyDetails;
+             this.quote.company = response.data.CompanyDetails;
           
             })
             .finally(() => {

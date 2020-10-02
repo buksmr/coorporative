@@ -335,7 +335,7 @@
                                             class="box notification is-primary"
                                         >
                                             <div class="heading has-text-white">
-                                                Loans Disbursed
+                                                Loans Disbursed + Int
                                             </div>
                                             <div
                                                 class="title is-size-4 is-size-6-mobile has-text-white"

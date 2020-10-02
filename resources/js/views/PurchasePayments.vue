@@ -125,7 +125,7 @@
             sortable
             
            
-          > {{props.row.currencies_placement==0 ? props.row.currencies_id : ''}}  {{ (props.row.payment_amount).toFixed(props.row.currencydecimal).toString().replace(/\B(?=(\d{3})+(?!\d))/g, props.row.currencythousands) }} {{props.row.currencies_placement==1 ? props.row.currencies_id : ''}}</b-table-column>
+          > {{props.row.currencies_placement==0 ? props.row.currencies_id : ''}}  {{props.row.payment_amount}}</b-table-column>
  <b-table-column
             field="paymenttype_id"
             class="is-size-7-mobile"
@@ -141,7 +141,7 @@
             label="Month paid"
             sortable
           >{{ props.row.no_month }}</b-table-column>
- <b-table-column
+            <b-table-column
             field="note"
             class="is-size-7-mobile"
             label="Notes"

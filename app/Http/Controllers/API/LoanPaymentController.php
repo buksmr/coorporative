@@ -16,7 +16,7 @@ use App\Models\quotes_amount;
 use App\Models\quotes_item_amount;
 use App\Models\quote_notes;
 use App\Models\Loan;
-use App\Models\LoanPay;
+use App\Models\Loanpay;
 use Input;
 use Response;
 class LoanPaymentController extends Controller
@@ -24,13 +24,13 @@ class LoanPaymentController extends Controller
 
     public function index()
     {
-        $invoice = LoanPay::select('payment_methods.name as payment_name','loanpays.loan_id', 'no_month','payment_no','payment_amount','paymenttype_id','payment_date','loanpays.note','payment_id','clients.client_name as client_name' )
+        $invoice = Loanpay::select('payment_methods.name as payment_name','loanpays.loan_id', 'no_month','payment_no','payment_amount','paymenttype_id','payment_date','loanpays.note','payment_id','clients.client_name as client_name' )
 
         ->leftJoin('loans','loanpays.loan_id', '=', 'loans.loan_id')
         ->leftJoin('clients','loans.client_id', '=', 'clients.id')
         ->leftJoin('payment_methods','loanpays.paymenttype_id', '=', 'payment_methods.id')
          ->where('clients.deleted_at', '=', NULL)->where('loans.deleted_at', '=', NULL)->where('loanpays.deleted_at', '=', NULL)	
-          ->orderBy('created_at', 'ASC')
+          ->orderBy('loanpays.created_at', 'ASC')
 		->get();
          // echo "<pre>"; print_r($request->all());exit;
           $Paymentarray = array();
@@ -69,7 +69,7 @@ class LoanPaymentController extends Controller
     {
 
         
-        $invoice = LoanPay::select('payment_methods.name as payment_name','loanpays.loan_id', 'no_month','payment_no','payment_amount','paymenttype_id','payment_date','loanpays.note','payment_id','clients.client_name as client_name' )
+        $invoice = Loanpay::select('payment_methods.name as payment_name','loanpays.loan_id', 'no_month','payment_no','payment_amount','paymenttype_id','payment_date','loanpays.note','payment_id','clients.client_name as client_name' )
         ->leftJoin('loans','loanpays.loan_id', '=', 'loans.loan_id')
         ->leftJoin('clients','loans.client_id', '=', 'clients.id')
         ->leftJoin('payment_methods','loanpays.paymenttype_id', '=', 'payment_methods.id')
@@ -161,7 +161,7 @@ class LoanPaymentController extends Controller
 
          public function show($id)
     {
-        $invoice = LoanPay::select('payment_methods.name as payment_name','loanpays.loan_id', 'no_month','payment_no','payment_amount','paymenttype_id','payment_date','loanpays.note','payment_id','clients.client_name as client_name' )
+        $invoice = Loanpay::select('payment_methods.name as payment_name','loanpays.loan_id', 'no_month','payment_no','payment_amount','paymenttype_id','payment_date','loanpays.note','payment_id','clients.client_name as client_name' )
         ->leftJoin('loans','loanpays.loan_id', '=', 'loans.loan_id')
         ->leftJoin('clients','loans.client_id', '=', 'clients.id')
         ->leftJoin('payment_methods','loanpays.paymenttype_id', '=', 'payment_methods.id')
@@ -471,7 +471,7 @@ class LoanPaymentController extends Controller
 
 
    $invoice = Loan::where('loan_id', $invoice_id)->update(['status' => $paidstatus, 'balance' => $total_balance, 'paid_amount' => $total_paid]);
-   $payment = LoanPay::where('payment_id', $id)->update(['deleted_at' => $date]);
+   $payment = Loanpay::where('payment_id', $id)->update(['deleted_at' => $date]);
 
    return response::json(['error' => false, 'message' =>"Payment Deleted successfully"], 200); 
 

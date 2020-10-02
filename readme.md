@@ -1,30 +1,21 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="250">  <br> <img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/vueJS.png" width="100"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-# FinPay
+# Cooperative Society
 
-Simplified invoice for freelances and small business users based on laravel - vue.JS 
-- http://finpay.ml
-## Try and Generate your free Invoice
-<p align="center"> <img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/trytool.png" width=650px> </p>
+Simplified Cooporative Society application for businesses and companies based on laravel - vue.JS 
 
-## Core Invoice / Quotation Tool
+
 <p align="center">
     
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/main.png" width=650px>
+
 <img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/login.png" width=650px>
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/dash.png" width=650px>
-<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/invoice.png" width=650px>
+<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/dashboard.PNG" width=650px>
+<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/members.png" width=650px>
+<img src="https://github.com/systimanx-itsol/finpay/blob/master/finpay/loan.PNG" width=650px>
 
 </p>
-# About FinPay
-## Below the list  of modules we covered for the basic opensource tool
+## About Cooporative  Society
+# Below the list  of modules we covered for the basic opensource tool
 
 * Dashboard
 * Clients 
@@ -32,8 +23,10 @@ Simplified invoice for freelances and small business users based on laravel - vu
 * Category
 * Product Units
 * Products         
-* Quotes
-* Invoice
+* Loans
+* Contrbutions
+* Expenses
+* Purchases
 * Payments
 * Reports     
 * Client Statement
@@ -45,7 +38,7 @@ Simplified invoice for freelances and small business users based on laravel - vu
 * Tax Rates
 * System Settings
 
-<p>There are  few main modules and several submodules. In <b>#Dashboard</b> it shows the graph and record for invoice and quotes. And make use of our website, you can also generate the invoice freely without login <b>#Generate free</b>. 
+<p>There are  few main modules and several submodules. In <b>#Dashboard</b> it shows all loans, contributions and purchases at a glance
 </p>
 
 ## Node_Module

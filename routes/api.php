@@ -185,7 +185,7 @@ Route::group(['middleware' => 'auth:api', 'prefix' => 'v1'], function () {
 
 	Route::post('/company/update/{id}', 'API\CompanyController@update');
 
-	//   Route::get('/userAccounts/list', 'API\userAccountController@index');
+	  Route::apiResource('user', 'API\userAccountController');
 	//   Route::post('/userAccounts/store', 'API\userAccountController@store');
 	//   Route::get('/userAccounts/edit/{id}', 'API\userAccountController@show');
 	//   Route::post('/userAccounts/update/{id}', 'API\userAccountController@update');

@@ -46,26 +46,28 @@ class CompanyController extends Controller
     {
       $CompanyArray=array();
  //  echo "<pre>";print_r($request->all());exit;  
-  $Company=Company::select('id', 'company_name','address','city','state','country','zipcode','phone','fax','mobile','website','default_invoice_template','default_quote_template')->where('deleted_at', '=', NULL)->get(); 
-        foreach($Company as $value){
-          array_push($CompanyArray,
-          [
-            "id" => $value->id,
-            "company_name" => $value->company_name,
-            "address" => $value->address,
-            "city" => $value->city,
-            "state" => $value->state,
-            "country" => $value->country,
-            "postal_code" => $value->zipcode, 
-            "phone_number" => $value->phone,
-            "fax_number" => $value->fax,
-            "mobile_number" => $value->mobile,
-            "website_address" => $value->website,
-             "status" => $value->status == 1 ? "Active" : "Inactive",
-            "default_invoice_template" => $value->default_invoice_template,
-            "default_quote_template" => $value->default_quote_template 
+  $Company=Company::select('id', 'company_name','address','city','state','country','zipcode','phone','fax','mobile','website','default_invoice_template','default_quote_template')->where('deleted_at', '=', NULL)->first(); 
+
+  $Company = $Company->company_name;
+        // foreach($Company as $value){
+        //   array_push($CompanyArray,
+        //   [
+        //     "id" => $value->id,
+        //     "company_name" => $value->company_name,
+        //     "address" => $value->address,
+        //     "city" => $value->city,
+        //     "state" => $value->state,
+        //     "country" => $value->country,
+        //     "postal_code" => $value->zipcode, 
+        //     "phone_number" => $value->phone,
+        //     "fax_number" => $value->fax,
+        //     "mobile_number" => $value->mobile,
+        //     "website_address" => $value->website,
+        //      "status" => $value->status == 1 ? "Active" : "Inactive",
+        //     "default_invoice_template" => $value->default_invoice_template,
+        //     "default_quote_template" => $value->default_quote_template 
             
-          ]);
+        //   ]);
           
           // $CompanyArray = [
           //   "id" => $value->id,
@@ -85,10 +87,10 @@ class CompanyController extends Controller
           // ];
                
                
-        }  
+        //}  
         
 
-return response::json(['error' => false, 'message' =>"success", "CompanyDetails" => $CompanyArray], 200);
+return response::json(['error' => false, 'message' =>"success", "CompanyDetails" => $Company], 200);
 
 
     }

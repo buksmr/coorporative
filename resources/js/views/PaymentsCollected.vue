@@ -24,25 +24,18 @@
          <form id="app" @submit.prevent="downloadpdf" validate>
         <div class="columns">
           <div class="column">
-            <p class="bd-notification is-info">
-              <label>
-                Company Profile <span class="has-text-danger">*</span>
-              </label>
-              <div class="field">
-                <div class="field has-addons">
-                <div class="control is-expanded">
-                  <div class="select is-fullwidth">
-                    <select id="company_profile" name="company_profile" v-model="paymentcollected.company_profile" v-validate="'required'" class="select-companyprofile">
-                      <option v-for="(companies,i) in companyprofile" :key="i" v-bind:value="companies.id">
-                            {{companies.company_name}}
-                         </option>     
-                      </select>
+                  <p class="bd-notification is-info">
+                     <label>Company Name
+                     <span class="has-text-danger	">*</span>
+                     </label>
+                  <div class="field">
+                     <p class="control has-icons-left has-icons-right">
+                        <input id="product_name" class="input" name="product_name" v-model="paymentcollected.company_profile" type="text" disabled
+                            >                           
+                     </p>
+
                   </div>
-                </div>
-              </div>
-        
-            </div>
-          </p>
+                  </p>
         </div>
         
  
@@ -251,7 +244,7 @@
     name: 'app',
    data() {
       return {
-        companyprofile:[],
+        companyprofile:'',
 
 
         resultpaymentcollected: null,
@@ -318,7 +311,7 @@
             this.setLoading(true);
             let url = '/Company';
              axios.get(url).then((response) => {
-               this.companyprofile = response.data.CompanyDetails;
+               this.paymentcollected.company_profile = response.data.CompanyDetails;
                 console.log("companyname",response.data.CompanyDetails);
             })
              .finally(() => {
@@ -329,6 +322,8 @@
 
               
     downloadpdf() {
+
+
        
          this.submitted =true;
          this.fromdate = moment(this.paymentcollected.from_date).format("YYYY-MM-DD");

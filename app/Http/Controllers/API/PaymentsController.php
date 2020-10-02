@@ -58,7 +58,7 @@ class PaymentsController extends Controller
         ->leftJoin('clients','quotes.client_id', '=', 'clients.id')
         ->leftJoin('payment_methods','payments.paymenttype_id', '=', 'payment_methods.id')
          ->where('clients.deleted_at', '=', NULL)->where('quotes.deleted_at', '=', NULL)->where('payments.deleted_at', '=', NULL)	
-          ->orderBy('created_at', 'ASC')
+          ->orderBy('payments.created_at', 'ASC')
 		->get();
       
           $Paymentarray = array();

@@ -72,11 +72,11 @@ class QuotesController extends Controller
       ->leftJoin('clients', 'quotes.client_id', '=', 'clients.id')
       ->leftJoin('quotes_status_master', 'quotes.quotes_status_id', '=', 'quotes_status_master.quotesstatus_id')
       ->where('quotes.deleted_at', '=', NULL)->where('quotes.quote_no', '!=', NULL)
-      ->orderBy('quotes.created_at', 'ASC')
+      ->orderBy('quotes.created_at', 'DESC')
       ->get();
 
 
-     //echo"<pre>quoteviewArray";print_r($quoteviewArray);     
+     //echo"<pre>quoteviewArray";print_r($quotes);     
     $quoteviewArray = array();
     foreach ($quotes as $key => $value) {
       $CurrenciesData = Currencies::select('symbol', 'placement', 'thousands', 'decimal')->where('id', '=', $value->currencies_id)->first();
@@ -721,139 +721,139 @@ $duedate = $due_date->addMonths($value->payment_plan);
 
   public function update(Request $request)
   {
-  //   $n = $request['number_of_products'];
-  //   $formdata = $request->all();
+    $n = $request['number_of_products'];
+    $formdata = $request->all();
 
-  //  //echo "<pre>"; print_r($formdata);
+   //echo "<pre>"; print_r($formdata);
 
-  //   $product_names = array();
-  //   $descriptions = array();
-  //   $quantities = array();
-  //   $prices = array();
-  //   $tax_rate_values = array();
-  //   $totals = array();
-  //   for ($i = 0; $i < $n; $i++) {
-  //     array_push($product_names, $request['products' . $i . 'product_name']);
-  //     array_push($descriptions, $request['products' . $i . 'description']);
-  //     array_push($quantities, $request['products' . $i . 'quantity']);
-  //     array_push($prices, $request['products' . $i . 'price']);
-  //     array_push($tax_rate_values, $request['products' . $i . 'tax_rate_value']);
-  //     array_push($totals, $request['products' . $i . 'total']);
-  //   }
-  //   $temp_product_names = $product_names;
-  //   $product_names = array();
-  //   for ($i = 0; $i < $n; $i++) {
-  //     // echo "<pre>"; print_r($temp_product_names[$i]);
-  //     $temp = explode("(", $temp_product_names[$i]);
-  //     array_push($product_names, $temp[0]);
-  //   }
-  //   // echo "<pre>product_names"; print_r($product_names);exit;
-  //   $notes = $request->input('note');
-  //   $file_names = $request->input('file_name');
-  //   $date = $request['date'];
-  //   $expires_on = $request['expires_on'];
-  //   $discountpercentage = $request['discountpercentage'];
+    $product_names = array();
+    $descriptions = array();
+    $quantities = array();
+    $prices = array();
+    $tax_rate_values = array();
+    $totals = array();
+    for ($i = 0; $i < $n; $i++) {
+      array_push($product_names, $request['products' . $i . 'product_name']);
+      array_push($descriptions, $request['products' . $i . 'description']);
+      array_push($quantities, $request['products' . $i . 'quantity']);
+      array_push($prices, $request['products' . $i . 'price']);
+      array_push($tax_rate_values, $request['products' . $i . 'tax_rate_value']);
+      array_push($totals, $request['products' . $i . 'total']);
+    }
+    $temp_product_names = $product_names;
+    $product_names = array();
+    for ($i = 0; $i < $n; $i++) {
+      // echo "<pre>"; print_r($temp_product_names[$i]);
+      $temp = explode("(", $temp_product_names[$i]);
+      array_push($product_names, $temp[0]);
+    }
+    // echo "<pre>product_names"; print_r($product_names);exit;
+    $notes = $request->input('note');
+    $file_names = $request->input('file_name');
+    $date = $request['date'];
+    $expires_on = $request['expires_on'];
+    $discountpercentage = $request['discountpercentage'];
 
 
 
     
 
-  //       $getquotes = Quotes::create([  
+        $getquotes = Quotes::create([  
                      
-  //       "user_id" => Auth::User()->id,     
-  //        "date" => date('Y-m-d'),
-  //        'client_id'=>$request->input('client_id'),
-  //       'quote_no' => $request->input('quote_no'),
-  //       'total' =>$formdata['subtotal'],
-  //       'payment_plan' =>$formdata['payment_plan'],
-  //        'discountpercentage' => $formdata['discountpercentage'],
-  //         'currencies_id' => $formdata['currencies_id'],
-  //     'quotes_status_id' => $formdata['quotes_status_id'],
+        "user_id" => Auth::User()->id,     
+         "date" => date('Y-m-d'),
+         'client_id'=>$request->input('client_id'),
+        'quote_no' => $request->input('quote_no'),
+        'total' =>$formdata['subtotal'],
+        'payment_plan' =>$formdata['payment_plan'],
+         'discountpercentage' => $formdata['discountpercentage'],
+          'currencies_id' => $formdata['currencies_id'],
+      'quotes_status_id' => $formdata['quotes_status_id'],
 
-  //   'monthly_payment' => $formdata['monthly_payment'],
+    'monthly_payment' => $formdata['monthly_payment'],
       
 
 
 
-  //       ]);
+        ]);
 
 
 
 
-  //               //echo "<pre>product_names"; print_r($getquotes);exit;
+                //echo "<pre>product_names"; print_r($getquotes);exit;
 
-  //   $quotes_id = $getquotes->quotes_id;
-
-
-
-
-  //   // echo "<pre>product_names"; print_r($quote_id);exit;
-
-  //   for ($i = 0; $i < $n; $i++) {
+    $quotes_id = $getquotes->quotes_id;
 
 
 
-  //     $getProduct = product::where('product_name', $product_names[$i])->first();
+
+    // echo "<pre>product_names"; print_r($quote_id);exit;
+
+    for ($i = 0; $i < $n; $i++) {
 
 
-  //       $increment = Product::where('product_name', $product_names[$i])->increment('total_quantity_sold', $quantities[$i]);
-  //     $product_id = $getProduct->id;
-  // //echo "<pre>product_names"; print_r($product_id);exit;
-  //     $quotesitem = quotesitem::create([
-  //       "product_id" => $product_id,
-  //       "quote_id" => $quotes_id,
-  //       "product_name" => $product_names[$i],
-  //       "description" => $descriptions[$i],
-  //       "quantity" => $quantities[$i],
-  //       "price" => $prices[$i],
-  //        "quotessubtotal" => $totals[$i],
+
+      $getProduct = product::where('product_name', $product_names[$i])->first();
+
+
+        $increment = Product::where('product_name', $product_names[$i])->increment('total_quantity_sold', $quantities[$i]);
+      $product_id = $getProduct->id;
+  //echo "<pre>product_names"; print_r($product_id);exit;
+      $quotesitem = quotesitem::create([
+        "product_id" => $product_id,
+        "quote_id" => $quotes_id,
+        "product_name" => $product_names[$i],
+        "description" => $descriptions[$i],
+        "quantity" => $quantities[$i],
+        "price" => $prices[$i],
+         "quotessubtotal" => $totals[$i],
         
 
-  //       //   "status" => $request->status,
-  //     ]);
-  //   }
-  //   //echo"<pre>";print_r($quotesitem);exit;
-  //   $quotes_item_id = $quotesitem->item_id;
+        //   "status" => $request->status,
+      ]);
+    }
+    //echo"<pre>";print_r($quotesitem);exit;
+    $quotes_item_id = $quotesitem->item_id;
 
 
 
 
 
-  //   $quotes_item_amount = quotes_item_amount::create([
-  //     "quotes_item_id" => $quotes_item_id,
-  //     "quotes_id" => $quotes_id,
-  //     "tax_before_total" => $request->subtotal,
-  //     "discount" => $request->discount,
-  //     "total_amount" => $request->wholetotal,
-  //     "balance" => $request->wholetotal,
-  //   ]);
-  //   // $formData = $request->all();
+    $quotes_item_amount = quotes_item_amount::create([
+      "quotes_item_id" => $quotes_item_id,
+      "quotes_id" => $quotes_id,
+      "tax_before_total" => $request->subtotal,
+      "discount" => $request->discount,
+      "total_amount" => $request->wholetotal,
+      "balance" => $request->wholetotal,
+    ]);
+    // $formData = $request->all();
 
 
-  //   $quote_notes = quote_notes::create([
-  //     "quotes_id" => $quotes_id,
-  //     "note" => $request->note,
-  //   ]);
+    $quote_notes = quote_notes::create([
+      "quotes_id" => $quotes_id,
+      "note" => $request->note,
+    ]);
 
-  //   if ($request->hasfile('images')) {
-  //     $file_index = 1;
-  //     foreach ($request->file('images') as $key => $file_name) {
-  //       $ext = pathinfo($file_name->getClientOriginalName(), PATHINFO_EXTENSION);
-  //       $name =  $formdata['quote_no'] . '_' . $file_index++ . '.' . $ext;
-  //       $type = $file_name->getMimeType();
-  //       $size = $file_name->getSize();
-  //       // $path= public_path().'/files/'.$name;
-  //       $path = public_path() . '/files/' . $name;
-  //       $file_name->move(public_path() . '/files/', $name);
-  //       $quote_attachements = quote_attachements::create([
-  //         "quotes_id" => $quotes_id,
-  //         "file_name" => $name,
-  //         "file_type" => $type,
-  //         "file_size" => $size,
-  //         "file_path" => $path,
-  //       ]);
-  //     }
-  //   }
+    if ($request->hasfile('images')) {
+      $file_index = 1;
+      foreach ($request->file('images') as $key => $file_name) {
+        $ext = pathinfo($file_name->getClientOriginalName(), PATHINFO_EXTENSION);
+        $name =  $formdata['quote_no'] . '_' . $file_index++ . '.' . $ext;
+        $type = $file_name->getMimeType();
+        $size = $file_name->getSize();
+        // $path= public_path().'/files/'.$name;
+        $path = public_path() . '/files/' . $name;
+        $file_name->move(public_path() . '/files/', $name);
+        $quote_attachements = quote_attachements::create([
+          "quotes_id" => $quotes_id,
+          "file_name" => $name,
+          "file_type" => $type,
+          "file_size" => $size,
+          "file_path" => $path,
+        ]);
+      }
+    }
 
     return response::json(['status' => 1, 'message' => "quotesitem updated success",  'quote_id' => $quotes_id, 'quotes_item_id' => $quotes_item_id], 200);
   }

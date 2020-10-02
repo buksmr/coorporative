@@ -184,3 +184,10 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.demohead img {
+  width: 120px;
+}
+
+</style>
